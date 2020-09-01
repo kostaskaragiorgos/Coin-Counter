@@ -10,6 +10,7 @@ import numpy as np
 
 def imagemod(imagefile):
     coins = cv2.imread(imagefile)
+    coins = cv2.resize(coins, (740, 740))
     gr = cv2.cvtColor(coins, cv2.COLOR_BGR2GRAY)
     img = cv2.medianBlur(gr, 5)
     rows = img.shape[0]
