@@ -22,6 +22,7 @@ class CoinCounter():
         self.master.resizable(False, False)
         self.menu = Menu(self.master)
         self.file_menu = Menu(self.menu, tearoff=0)
+        self.file_menu.add_command(label="Insert image", accelerator='Ctrl+0', command=self.addimage)
         self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
         self.about_menu = Menu(self.menu, tearoff=0)
@@ -34,6 +35,15 @@ class CoinCounter():
         self.master.bind('<Alt-F4>', lambda event: self.exitmenu())
         self.master.bind('<Control-F1>', lambda event: helpmenu())
         self.master.bind('<Control-i>', lambda event: aboutmenu())
+    
+    def addimage(self):
+        imgfile = filedialog.askopenfilename(initialdir="/", title="Select an image file",
+                                             filetypes=(("image files", "*.jpg"),
+                                                        ("all files", "*.*")))
+        if ".jpg" in imgfile:
+            pass
+        else:
+            msg.showerror("Abort", "Abort")
 
     def exitmenu(self):
         """ exit menu"""
