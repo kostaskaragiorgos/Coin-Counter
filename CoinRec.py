@@ -8,6 +8,13 @@ from tkinter import filedialog
 import cv2
 import numpy as np
 
+def imagemod(imagefile):
+    coins = cv2.imread(imagefile)
+    gr = cv2.cvtColor(coins, cv2.COLOR_BGR2GRAY)
+    img = cv2.medianBlur(gr, 5)
+    rows = img.shape[0]
+    circles = cv2.HoughCircles(img , cv2.HOUGH_GRADIENT,1, rows/8, param1=100, param2=30, minRadius=0, maxRadius=60)
+    return circles, coins
 
 def helpmenu():
     """ help menu """
@@ -40,13 +47,7 @@ class CoinCounter():
         self.master.bind('<Control-F1>', lambda event: helpmenu())
         self.master.bind('<Control-i>', lambda event: aboutmenu())
     
-    def imagemod(imagefile):
-        coins = cv2.imread(imagefile)
-        gr = cv2.cvtColor(coins, cv2.COLOR_BGR2GRAY)
-        img = cv2.medianBlur(gr, 5)
-        rows = img.shape[0]
-        circles = cv2.HoughCircles(img , cv2.HOUGH_GRADIENT,1, rows/8, param1=100, param2=30, minRadius=0, maxRadius=60)
-        return circles, coins
+
 
     def addimage(self):
         imgfile = filedialog.askopenfilename(initialdir="/", title="Select an image file",
