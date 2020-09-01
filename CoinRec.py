@@ -5,6 +5,10 @@ from tkinter import Menu, Tk
 from tkinter import messagebox as msg
 from tkinter import filedialog
 
+import cv2
+import numpy as np
+
+
 def helpmenu():
     """ help menu """
     msg.showinfo("HELP", "HELP")
@@ -36,12 +40,34 @@ class CoinCounter():
         self.master.bind('<Control-F1>', lambda event: helpmenu())
         self.master.bind('<Control-i>', lambda event: aboutmenu())
     
+    def imagemod(imagefile):
+        coins = cv2.imread(imagefile)
+        gr = cv2.cvtColor(coins, cv2.COLOR_BGR2GRAY)
+        img = cv2.medianBlur(gr, 5)
+        rows = img.shape[0]
+        circles = cv2.HoughCircles(img , cv2.HOUGH_GRADIENT,1, rows/8, param1=100, param2=30, minRadius=0, maxRadius=60)
+        return circles, coins
+
     def addimage(self):
         imgfile = filedialog.askopenfilename(initialdir="/", title="Select an image file",
                                              filetypes=(("image files", "*.jpg"),
                                                         ("all files", "*.*")))
         if ".jpg" in imgfile:
-            pass
+            circles, coins = imagemod(imgfile)
+            if circles is not None:
+                circles = np.uint16(np.around(circles))
+                for i in circles[0, :]:
+                    center = (i[0], i[1])
+                    # circle center
+                    cv2.circle(coins, center, 1, (0, 100, 100), 3)
+                    # circle outline
+                    radius = i[2]
+                    cv2.circle(coins, center, radius, (255, 0, 255), 3)
+
+            cv2.imshow("Cir", coins)
+            cv2.waitKey()
+            cv2.destroyAllWindows()
+
         else:
             msg.showerror("Abort", "Abort")
 
