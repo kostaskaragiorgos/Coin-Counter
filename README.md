@@ -1,6 +1,8 @@
 # Coin-Counter
 counts the number of coins and calculates the amount
 
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
+
 # Table of contents
 
 <!--ts-->
@@ -22,14 +24,36 @@ counts the number of coins and calculates the amount
 
 ## Files
 
+<ul>
+ <li> ./doc (documentation folder) </li>
+ <li> ./images (images folder) </li>
+ <li> CoinRec.py(main file) </li>
+</ul>
 
 
 ## Dependencies
 
+To install the dependencies
 
+
+<ul>
+  <li> Numpy (conda install -c anaconda numpy) </li>
+  <li> second way to install numpy( pip install numpy) </li>
+  <li> open cv (conda install -c conda-forge opencv) </li>
+  <li> second way to install open cv(pip install opencv-contrib-python-headless) </li>
+</ul>
+
+
+or run
+
+```shell
+pip install -r requirements.txt
+```
 
 ## Current_Version
 
+
+<p><img src ="images/CoinRec.png" title = "CoinRec Version"/> </p>
 
 ## Documentation
 
@@ -67,5 +91,4 @@ All project documentation is located in the `./doc`  folder.
 
 
 ## License
-
-[Apache-2.0](https://choosealicense.com/licenses/apache-2.0/)
+[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
