@@ -40,19 +40,19 @@ All project documentation is located in the `./doc`  folder.
 
 ## Radon_cc
 
-
+<p><img src = "images/radon/coinreccc.png" title = "coin rec radon cc"/> </p>
 
 ## Radon_hal
 
-
+<p><img src = "images/radon/coinrechal.png" title = "coin rec radon hal"/> </p>
 
 ## Radon_mi
 
-
+<p><img src = "images/radon/coinrecmi.png" title = "coin rec radon mi"/> </p>
 
 ## Radon_raw
 
-
+<p><img src = "images/radon/coinrecraw.png" title = "coin rec radon raw"/> </p>
 
 
 ## Keybinds
