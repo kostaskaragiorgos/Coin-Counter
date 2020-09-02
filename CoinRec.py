@@ -69,7 +69,7 @@ class CoinCounter():
         self.master.resizable(False, False)
         self.menu = Menu(self.master)
         self.file_menu = Menu(self.menu, tearoff=0)
-        self.file_menu.add_command(label="Insert image", accelerator='Ctrl+0', command=addimage)
+        self.file_menu.add_command(label="Insert image", accelerator='Ctrl+O', command=addimage)
         self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
         self.about_menu = Menu(self.menu, tearoff=0)
