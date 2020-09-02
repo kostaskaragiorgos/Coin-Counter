@@ -37,24 +37,31 @@ def addimage():
                                                     ("all files", "*.*")))
     return imgfile
 
-def findcircles():
-    """ Finds the coins """
-    imgfile = addimage()
-    if ".jpg" in imgfile:
-        circles, coins = imagemod(imgfile)
-        if circles is not None:
-            circles = np.uint16(np.around(circles))
-            for i in circles[0, :]:
-                center = (i[0], i[1])
-                # circle center
-                cv2.circle(coins, center, 1, (0, 100, 100), 3)
-                # circle outline
-                radius = i[2]
-                cv2.circle(coins, center, radius, (255, 0, 255), 3)
+def findcircles(circles, coins):
+    """ Finds the coins
+    Args:
+        circles: modified image
+        coins: imported image
+    """
+    if circles is not None:
+        circles = np.uint16(np.around(circles))
+        for i in circles[0, :]:
+            center = (i[0], i[1])
+            # circle center
+            cv2.circle(coins, center, 1, (0, 100, 100), 3)
+            # circle outline
+            radius = i[2]
+            cv2.circle(coins, center, radius, (255, 0, 255), 3)
         cv2.imshow("Cir", coins)
         cv2.waitKey()
         cv2.destroyAllWindows()
 
+def checkimage():
+    """ checks the image """
+    imgfile = addimage()
+    if ".jpg" in imgfile:
+        circles, coins = imagemod(imgfile)
+        findcircles(circles, coins)
     else:
         msg.showerror("Abort", "Abort")
 
@@ -77,7 +84,7 @@ class CoinCounter():
         self.master.resizable(False, False)
         self.menu = Menu(self.master)
         self.file_menu = Menu(self.menu, tearoff=0)
-        self.file_menu.add_command(label="Insert image", accelerator='Ctrl+O', command=findcircles)
+        self.file_menu.add_command(label="Insert image", accelerator='Ctrl+O', command=checkimage)
         self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
         self.about_menu = Menu(self.menu, tearoff=0)
