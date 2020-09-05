@@ -1,0 +1,1 @@
+Number of coins found: 5
