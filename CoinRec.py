@@ -4,7 +4,7 @@ Coin Counter  project
 from tkinter import Menu, Tk
 from tkinter import messagebox as msg
 from tkinter import filedialog
-
+from random import randint
 import cv2
 import numpy as np
 
@@ -45,6 +45,7 @@ def findcircles(circles, coins):
     """
     if circles is not None:
         circles = np.uint16(np.around(circles))
+        f = open("image"+str(randint(1, 100))+".txt", "a")
         for i in circles[0, :]:
             center = (i[0], i[1])
             # circle center
@@ -52,6 +53,7 @@ def findcircles(circles, coins):
             # circle outline
             radius = i[2]
             cv2.circle(coins, center, radius, (255, 0, 255), 3)
+        f.write("Number of coins found: "str(len(circles[0, :])))
         cv2.imshow("Cir", coins)
         cv2.waitKey()
         cv2.destroyAllWindows()
