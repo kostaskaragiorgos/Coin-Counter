@@ -101,7 +101,7 @@ class CoinCounter():
         self.master.bind('<Alt-F4>', lambda event: self.exitmenu())
         self.master.bind('<Control-F1>', lambda event: helpmenu())
         self.master.bind('<Control-i>', lambda event: aboutmenu())
-        self.master.bind('<Control-F5', lambda event: self.closef())
+        self.master.bind('<Control-F5>', lambda event: self.closef())
 
     def closef(self):
         pass
