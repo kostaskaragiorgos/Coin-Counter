@@ -53,7 +53,7 @@ def findcircles(circles, coins):
             # circle outline
             radius = i[2]
             cv2.circle(coins, center, radius, (255, 0, 255), 3)
-        f.write("Number of coins found: "str(len(circles[0, :])))
+        f.write("Number of coins found: "+str(len(circles[0, :])))
         cv2.imshow("Cir", coins)
         cv2.waitKey()
         cv2.destroyAllWindows()
