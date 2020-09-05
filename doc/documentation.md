@@ -1,0 +1,26 @@
+# video-and-image-frontal-face-recogntion
+
+# File menu
+
+## Insert image
+
+You can insert a image using menu File --> Insert image or using Ctrl+O keybind
+
+<p><img src ="images/File menu/insert image.png" title="insert image menu"/> </p>
+
+you have to insert a .jpg image or else an error message pops up
+
+<p><img src ="images/File menu/abort.png" title="no image error"> </p>
+
+
+## Exit
+
+You can close the app using menu File --> Exit or using Alt+F4 keybind
+
+<p><img src = "images/File menu/close app.png" title="Close app"/></p>
+
+An informative message pops up
+
+<p><img src ="images/File menu/close app pop up.png" title="close app pop up"/> </p>
+
+You press ok to close the app or cancel if you don't want
