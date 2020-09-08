@@ -87,7 +87,6 @@ class CoinCounter():
         self.menu = Menu(self.master)
         self.file_menu = Menu(self.menu, tearoff=0)
         self.file_menu.add_command(label="Insert image", accelerator='Ctrl+O', command=checkimage)
-        self.file_menu.add_command(label="Close image", accelerator='Ctrl+F5', command=self.closef)
         self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
         self.about_menu = Menu(self.menu, tearoff=0)
@@ -101,10 +100,6 @@ class CoinCounter():
         self.master.bind('<Alt-F4>', lambda event: self.exitmenu())
         self.master.bind('<Control-F1>', lambda event: helpmenu())
         self.master.bind('<Control-i>', lambda event: aboutmenu())
-        self.master.bind('<Control-F5>', lambda event: self.closef())
-
-    def closef(self):
-        pass
 
     def exitmenu(self):
         """ exit menu"""
